@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('bootstrap/bootstrap.ejs') %>
+    <link rel="stylesheet" href="/public/index/index.css">
+    <title>Home</title>
+</head>
+<body>
+    <div id='jumbotronVid'>
+        <video src="/public/index/videos/Pixel-City-Live-Wallpaper.mp4" autoplay muted loop></video>
+    </div>
+    <div class='jumbotron jumbotron-fluid zindex-2'>
+        <div class="container">
+            <h1 class="display-6 text-primary textWhite">MSGBox</h1>
+            <p class="lead">A place to simply connect with others</p>
+            <div class="my-5"></div>
+            <a class="btn btn-danger btn-lg">Get started</a>
+        </div>
+    </div>
+    <section>
+        <div class="container presentation">
+            <div class="row">
+                <div class="col-md-8">
+                    <img class='presentationimgHalf rounded-left rounded-right' src="/public/index/images/presentation1.png" alt="presentation image 1">
+                </div>
+                <div class="col-md-4">
+                    <h2 class="display-2 text-center text-primary">Messaging shouldn't be complicated</h2>
+                    <p class="lead">Clean and simple concepts stays simple</p>
+                </div>
+            </div>
+        </div>
+        <div class="container presentation">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="display-2 text-left text-primary">Create friendships</h2>
+                    <p class="lead">and memories that lives with you forever</p>
+                </div>
+                <div class="col-md-3">
+                    <img class='presentationimgFull rounded-circle' src="/public/index/images/presentation2.png" alt="presentation image 1">
+                </div>
+                <div class="col-md-3">
+                    <img class='presentationimgFull rounded-left rounded-right' src="/public/index/images/presentation2-2.png" alt="presentation image 1">
+                </div>
+            </div>
+        </div>
+        <div class="container presentation">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="display-2 text-center text-primary my-5">What are you waiting for?</h2>
+                    <div class="text-center">
+                        <a class="btn btn-success btn-lg" href="">START CREATING MEMORIES</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <footer>
+        </footer>
+    </section>
+</body>
+</html>
