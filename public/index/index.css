@@ -10,10 +10,6 @@
 .textWhite{
     color: white !important;
 }
-.zindex-2{
-    position: relative;
-    z-index: 2;
-}
 #jumbotronVid{
     position: absolute;
     height: 48vh;
@@ -46,4 +42,13 @@
 }
 .btn{
     text-shadow: 2px 2px black;
+}
+
+@media only screen and (max-width:768px){
+    .display-2{
+        font-size: 3em;
+    }
+    .presentationimgHalf{
+        width: 80%;
+    }
 }
