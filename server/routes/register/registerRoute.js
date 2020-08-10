@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
     res.render('../public/register/register.ejs');
 })
 
-router.post('/',(req,res)=>{
+router.post('/',async(req,res)=>{
     newUser = new user(req.body);
 
     /* 
@@ -14,11 +14,12 @@ router.post('/',(req,res)=>{
     */
 
     //save user into db
-    renderOBJ={success=true};
+    renderOBJ={success:true};
     try{
         await newUser.save((error)=>{
-            if(error)
+            if(error){
                 renderOBJ.success = false;
+            }
         })
         res.render('../public/register/register.ejs',renderOBJ);
     }catch(e){

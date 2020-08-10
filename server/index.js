@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyparser = require('body-parser');
 const path = require('path');
 
 const app = express();
@@ -11,6 +12,9 @@ require('./DAO/db/connectionMongoose');
 
 // to parse data from incoming request into json obj
 app.use(express.json());
+// for bodyparser
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:true}));
 
 //set public path
 app.use('/public',express.static(publicPath));
