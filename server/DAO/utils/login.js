@@ -1,5 +1,6 @@
 const user = require('../models/user');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const loginValidation=async(userData)=>{
     let token = null
@@ -17,7 +18,10 @@ const loginValidation=async(userData)=>{
             })
         }
     })
-    return token;
 };
+
+const jwtSign=(token)=>{
+    return jwt.sign(token,process.env.ACCESS_TOKEN_SECRET);
+}
 
 exports.loginValidation = loginValidation;
