@@ -11,28 +11,34 @@
     <%- include('../navbar/navbar.ejs') %>
     <div class='container vh-100'>
         <div class="row vertical-center">
-            <form class="form-register col-4 align-self-center mx-auto"
-                action='/register' method="POST"
-            >
-                <div class='logo'>
-                    <h4>MSGBox</h4>
-                    <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-left-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
-                    </svg>
+            <% if(renderOBJ.registered && renderOBJ.success) {%>
+                <div class="container">
+                    <h2>Your account has been created, you may now login.</h2>
                 </div>
-                <div class='form-group mt-3'>
-                    <input type="text" class='form-control mb-1' name='username' placeholder="Username">
-                    <input type="password" class="form-control" name="password" placeholder="Password">
-                    <input type="password" class="form-control mb-1" name="passwordConfirm" placeholder="Confirm Password">
-                    <input type="text" class="form-control" name="email" placeholder="Email">
-                    <input type="text" class="form-control mb-1" name="emailConfirm" placeholder="Confirm Email">
-                    <div class="checkbox terms">
-                        <input type="checkbox" class="form-check-input" name="TermCheckBox">
-                        <label class="form-check-label" for="exampleCheck1">I agree to MSGBox terms of service</label>
-                    <div>
-                </div>
-                <input class='btn btn-success btn-md' type="submit" value="Register">
-            </form>
+            <%}else{%>
+                <form class="form-register col-4 align-self-center mx-auto"
+                    action='/register' method="POST"
+                >
+                    <div class='logo'>
+                        <h4>MSGBox</h4>
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-chat-left-text-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793V2zm3.5 1a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+                        </svg>
+                    </div>
+                    <div class='form-group mt-3'>
+                        <input type="text" class='form-control mb-1' name='username' placeholder="Username">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control mb-1" name="passwordConfirm" placeholder="Confirm Password">
+                        <input type="text" class="form-control" name="email" placeholder="Email">
+                        <input type="text" class="form-control mb-1" name="emailConfirm" placeholder="Confirm Email">
+                        <div class="checkbox terms">
+                            <input type="checkbox" class="form-check-input" name="TermCheckBox">
+                            <label class="form-check-label" for="exampleCheck1">I agree to MSGBox terms of service</label>
+                        <div>
+                    </div>
+                    <input class='btn btn-success btn-md' type="submit" value="Register">
+                </form>
+            <%}%>
         </div>
     </div>
 </body>

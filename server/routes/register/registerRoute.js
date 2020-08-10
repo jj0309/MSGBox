@@ -3,7 +3,8 @@ const user = require('../../DAO/models/user');
 const router = express.Router();
 
 router.get('/',(req,res)=>{
-    res.render('../public/register/register.ejs');
+    renderOBJ={registered:false};
+    res.render('../public/register/register.ejs',);
 })
 
 router.post('/',async(req,res)=>{
@@ -14,7 +15,7 @@ router.post('/',async(req,res)=>{
     */
 
     //save user into db
-    renderOBJ={success:true};
+    renderOBJ={success:true,registered:true};
     try{
         await newUser.save((error)=>{
             if(error){
