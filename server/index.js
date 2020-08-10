@@ -9,8 +9,13 @@ const publicPath = path.join(__dirname+"/../public/");
 // connection to mangoose db
 require('./DAO/db/connectionMongoose');
 
+// to parse data from incoming request into json obj
 app.use(express.json());
+
+//set public path
 app.use('/public',express.static(publicPath));
+
+//to use ejs as our view engine
 app.set('view engine','ejs');
 
 //routing
