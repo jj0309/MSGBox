@@ -3,12 +3,17 @@ const path = require('path');
 
 const app = express();
 const port = 80;
+//public path
 const publicPath = path.join(__dirname+"/../public/");
+
+// connection to mangoose db
+require('./DAO/db/connectionMongoose');
 
 app.use(express.json());
 app.use('/public',express.static(publicPath));
 app.set('view engine','ejs');
 
+//routing
 const loginRoute = require('./routes/login/loginRoute');
 const registerRoute = require('./routes/register/registerRoute');
 
