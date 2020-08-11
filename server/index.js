@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const bodyparser = require('body-parser');
+const cookieParser = require('cookie-parser')
 const path = require('path');
 
 const app = express();
@@ -16,6 +17,8 @@ app.use(express.json());
 // for bodyparser
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
+//to access cookies
+app.use(cookieParser());
 
 //set public path
 app.use('/public',express.static(publicPath));
