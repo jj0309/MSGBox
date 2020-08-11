@@ -19,7 +19,8 @@ router.post('/',async(req,res)=>{
     userData = req.body;
     const token = await loginLib.loginValidation(userData);
     if(token){
-        res.cookie('MSGBoxCookie',loginLib.jwtSign(token),{maxAge:180000});
+        // MAXAGE IS SET TO 24 hours FOR TESTING (NO REFRESH TOKEN IMPLEMENTED YET), TO SET BACKTO 180000 AFTER TESTING
+        res.cookie('MSGBoxCookie',loginLib.jwtSign(token),{maxAge:24 * 60 * 60 * 1000});
     }
     res.redirect('/login');
 })

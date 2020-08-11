@@ -27,14 +27,14 @@ app.use('/public',express.static(publicPath));
 app.set('view engine','ejs');
 
 //routing
+const indexRoute = require('./routes/index/indexRoute');
 const loginRoute = require('./routes/login/loginRoute');
 const registerRoute = require('./routes/register/registerRoute');
+const messageRoute = require('./routes/message/messageRoute');
 
-app.get('/',(req,res)=>{
-    res.render('../public/index.ejs');
-});
-
+app.use('/',indexRoute);
 app.use('/login',loginRoute);
 app.use('/register',registerRoute);
+app.use('/messages',messageRoute);
 
 app.listen(80,console.log('running on port 80'));

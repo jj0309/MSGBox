@@ -9,3 +9,16 @@
     position: relative;
     z-index: 2;
 }
+.remove-padding-margin{
+    padding:0;
+    margin: 0;
+}
+.seperatingBorder-top{
+    border-top: 1px solid whitesmoke;
+}
+.lightBlackContrast-bg{
+    background-color: rgb(48, 49, 54);
+}
+.lightBlack-bg{
+    background-color: rgb(54, 57, 64);
+}
