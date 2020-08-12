@@ -27,7 +27,7 @@ const publicPath = path.join(__dirname+"/../public/");
 //set public path
 app.use('/public',express.static(publicPath));
 
-//to use ejs as our view engine
+//to use ejs as our view/templating engine
 app.set('view engine','ejs');
 
 
@@ -43,9 +43,8 @@ app.use('/register',registerRoute);
 app.use('/messages',messageRoute);
 
 io.on('connection', (socket) => {
-    console.log('a user connected');
-    socket.on('disconnect',()=>{
-        console.log('disconnected user');
+    socket.on('chat message',(message)=>{
+        io.emit('chat message',message);
     })
 });
 

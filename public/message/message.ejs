@@ -22,7 +22,9 @@
             <div>text message3</div>
         </div>
         <div class="inputBox">
-            <input type="text" class='textBox form-control' name='message' placeholder="Message">
+            <form id='messageForm'>
+                <input type="text" class='textBox form-control' autocomplete="off" name='message' placeholder="Message">
+            </form>
         </div>
     </div>
     <script src='/socket.io/socket.io.js'></script>
