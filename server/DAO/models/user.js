@@ -8,6 +8,11 @@ const userSchema = new mongoose.Schema({
         unique: true,
         trim:true
     },
+    surname:{
+        type:String,
+        required:false,
+        trim:true
+    },
     password:{
         type:String,
         required:true,
@@ -15,21 +20,32 @@ const userSchema = new mongoose.Schema({
     },
     email:{
         type:String,
-        require:true,
+        required:true,
         trim:true,
         unique:true
+    },
+    convos:{
+        type:Array,
+        required:false
     }
 })
 
+//before it saves into DB
 userSchema.pre('save',function(next){
     const user = this;
     const salt = 8;
+    //give it his default surname
+    user.surname = user.username;
+
+    //hashing of password
     if(!user.isModified('password')){
         return next();
     }
     bcrypt.hash(user.password,salt,(error,hashed)=>{
-        if(error)
+        if(error){
+            console.log(error)
             return next(error);
+        }
         user.password = hashed;
         next();
     })
