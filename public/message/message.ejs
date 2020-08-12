@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('../login/utils/redirectToLogin.ejs') %>
     <%- include('../bootstrap/bootstrap.ejs') %>
+    <link rel="stylesheet" href="/public/message/css/message.css">
     <title>Messages</title>
 </head>
 <body style='height: 100%'>
     <%- include('../navbar/navbar.ejs')%>
-    <div class='container h-100 remove-padding-margin'>
-        <div class='row h-100'>
-            <div class="FriendList col-md-3 lightBlackContrast-bg text-light seperatingBorder-top" style="height:100%">
-                <div>Peter cheng</div>
-                <div>Peter cheng2</div>
-                <div>Peter cheng3</div>
-            </div>
-            <div class="MessageBox lightBlack-bg seperatingBorder-top col-md-9">
-                <div>text message1</div>
-                <div>text message2</div>
-                <div>text message3</div>
-                <div>text message3</div>
-                <div>text message3</div>
-            </div>
+    <div class='grid-20-20 WidthHeight-100 lightBlackContrast-bg remove-padding-margin'>
+        <div class="FriendList lightBlackContrast-bg text-light seperatingBorder-top" style="height:100%">
+            <div>Peter cheng</div>
+            <div>Peter cheng2</div>
+            <div>Peter cheng3</div>
+        </div>
+        <div class="MessageBox lightBlack-bg seperatingBorder-top">
+            <div>text message1</div>
+            <div>text message2</div>
+            <div>text message3</div>
+        </div>
+        <div class="inputBox">
+            <input type="text" class='textBox form-control' name='message' placeholder="Message">
         </div>
     </div>
+    <script src='/socket.io/socket.io.js'></script>
+    <script src='/public/JS/socketio/socket.js'></script>
 </body>
 </html>

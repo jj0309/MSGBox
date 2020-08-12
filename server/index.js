@@ -1,13 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const bodyparser = require('body-parser');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 const path = require('path');
+const http = require('http');
+const socketio = require('socket.io');
 
 const app = express();
 const port = 80;
-//public path
-const publicPath = path.join(__dirname+"/../public/");
+const server = http.createServer(app);
+const io = socketio(server);
 
 // connection to mangoose db
 require('./DAO/db/connectionMongoose');
@@ -20,11 +22,14 @@ app.use(bodyparser.urlencoded({extended:true}));
 //to access cookies
 app.use(cookieParser());
 
+//public path
+const publicPath = path.join(__dirname+"/../public/");
 //set public path
 app.use('/public',express.static(publicPath));
 
 //to use ejs as our view engine
 app.set('view engine','ejs');
+
 
 //routing
 const indexRoute = require('./routes/index/indexRoute');
@@ -37,4 +42,13 @@ app.use('/login',loginRoute);
 app.use('/register',registerRoute);
 app.use('/messages',messageRoute);
 
-app.listen(80,console.log('running on port 80'));
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('disconnect',()=>{
+        console.log('disconnected user');
+    })
+});
+
+
+//is up
+server.listen(port,console.log('running on port ',port));

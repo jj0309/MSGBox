@@ -1,0 +1,26 @@
+.FriendList{
+    grid-column: 1/4;
+    grid-row: 1/21;
+}
+.MessageBox{
+    grid-column: 4/21;
+    grid-row: 1/18;
+    color: whitesmoke;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.inputBox{
+    grid-column: 4/21;
+    grid-row: 18/20;
+    background-color: #42454D;
+}
+.textBox{
+    height: 100%;
+    background-color: #545863;
+    color: whitesmoke;
+    text-align: left;
+}
+.textBox:focus{
+    background-color: #545863;
+    color: whitesmoke;
+}
