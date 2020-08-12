@@ -11,6 +11,9 @@ const port = 80;
 const server = http.createServer(app);
 const io = socketio(server);
 
+//set io to access in route files
+app.set("io",io);
+
 // connection to mangoose db
 require('./DAO/db/connectionMongoose');
 
@@ -42,11 +45,7 @@ app.use('/login',loginRoute);
 app.use('/register',registerRoute);
 app.use('/messages',messageRoute);
 
-io.on('connection', (socket) => {
-    socket.on('chat message',(message)=>{
-        io.emit('chat message',message);
-    })
-});
+
 
 
 //is up
