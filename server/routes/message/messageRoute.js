@@ -20,7 +20,6 @@ module.exports = function(io){
         const convoExist = await roomUtilLib.roomValidation(paramRoomID);
         if(convoExist){
             io.once('connection',(socket)=>{
-                console.log('connected');
                 socket.on('subscribe',function(roomID){ // do not use this roomID (changeable from frontend)
                     socket.join(paramRoomID);
                 })

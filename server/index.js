@@ -35,11 +35,13 @@ const indexRoute = require('./routes/index/indexRoute');
 const loginRoute = require('./routes/login/loginRoute');
 const registerRoute = require('./routes/register/registerRoute');
 const messageRoute = require('./routes/message/messageRoute')(io);
+const searchRoute = require('./routes/Search/searchRoute');
 
 app.use('/',indexRoute);
 app.use('/login',loginRoute);
 app.use('/register',registerRoute);
 app.use('/messages',messageRoute);
+app.use('/search',searchRoute);
 
 
 

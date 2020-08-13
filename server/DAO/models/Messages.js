@@ -5,6 +5,14 @@ const MessagesSchema = new mongoose.Schema({
         type:String, // index that will be stored in both users
         required:false
     },
+    activated:{ // receiver must accept convo invite 
+        type:Boolean,
+        default:false
+    },
+    inviteReceiver:{ // receiver username
+        type:String,
+        required:true
+    },
     messages:{
         type:Object, 
         /* object is gonna be like this

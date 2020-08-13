@@ -5,6 +5,9 @@
     display: flex;
     align-items: center;
 }
+.flex-Dir-Col{
+    flex-direction:column;
+}
 .zindex-2{
     position: relative;
     z-index: 2;

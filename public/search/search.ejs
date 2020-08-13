@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../bootstrap/bootstrap.ejs') %>
+    <link rel="stylesheet" href="/public/search/css/search.css">
+    <title>Search Result</title>
+</head>
+<body>
+    <%- include('../navbar/navbar.ejs') %>
+    <div class='Wrapper lightBlack-bg'>
+        <div class="container lightBlackContrast-bg text-center">
+            <div><h1>Search Result</h1></div>
+            <div><%= renderOBJ.foundUser.username %></div>
+            <input class='btn btn-success btn-md' type="submit" value="Send conversation request">
+        </div>
+    </div>
+</body>
+</html>

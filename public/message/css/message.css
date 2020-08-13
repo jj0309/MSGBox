@@ -1,6 +1,9 @@
 .FriendList{
     grid-column: 1/4;
     grid-row: 1/21;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .MessageBox{
     grid-column: 4/21;

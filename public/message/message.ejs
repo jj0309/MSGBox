@@ -12,15 +12,21 @@
     <%- include('../navbar/navbar.ejs')%>
     <div class='grid-20-20 WidthHeight-100 lightBlackContrast-bg remove-padding-margin'>
         <div class="FriendList lightBlackContrast-bg text-light seperatingBorder-top" style="height:100%">
-            <div>Peter cheng</div>
-            <div>Peter cheng2</div>
-            <div>Peter cheng3</div>
+            <div id="friendContainer">
+                <div>friend1</div>
+                <div>friend2</div>
+                <div>friend3</div>
+            </div>
+            <div is="searchContainer">
+                <form action="/search" method="GET">
+                    <input type="text" class='textBox form-control' autocomplete="off" name='username' placeholder="Search user">
+                    <input class='btn btn-success btn-md' type="submit" value="Search">
+                </form>
+            </div>
         </div>
         <% if(renderOBJ.convoExist && renderOBJ.convoAttempt ){ %>
             <div class="MessageBox lightBlack-bg seperatingBorder-top">
-                <div>text message1</div>
-                <div>text message2</div>
-                <div>text message3</div>
+                
             </div>
             <div class="inputBox">
                 <form id='messageForm'>
