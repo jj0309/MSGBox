@@ -11,9 +11,6 @@ const port = 80;
 const server = http.createServer(app);
 const io = socketio(server);
 
-//set io to access in route files
-app.set("io",io);
-
 // connection to mangoose db
 require('./DAO/db/connectionMongoose');
 
@@ -33,18 +30,16 @@ app.use('/public',express.static(publicPath));
 //to use ejs as our view/templating engine
 app.set('view engine','ejs');
 
-
 //routing
 const indexRoute = require('./routes/index/indexRoute');
 const loginRoute = require('./routes/login/loginRoute');
 const registerRoute = require('./routes/register/registerRoute');
-const messageRoute = require('./routes/message/messageRoute');
+const messageRoute = require('./routes/message/messageRoute')(io);
 
 app.use('/',indexRoute);
 app.use('/login',loginRoute);
 app.use('/register',registerRoute);
 app.use('/messages',messageRoute);
-
 
 
 

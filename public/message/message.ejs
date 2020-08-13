@@ -16,18 +16,34 @@
             <div>Peter cheng2</div>
             <div>Peter cheng3</div>
         </div>
-        <div class="MessageBox lightBlack-bg seperatingBorder-top">
-            <div>text message1</div>
-            <div>text message2</div>
-            <div>text message3</div>
-        </div>
-        <div class="inputBox">
-            <form id='messageForm'>
-                <input type="text" class='textBox form-control' autocomplete="off" name='message' placeholder="Message">
-            </form>
-        </div>
+        <% if(renderOBJ.convoExist && renderOBJ.convoAttempt ){ %>
+            <div class="MessageBox lightBlack-bg seperatingBorder-top">
+                <div>text message1</div>
+                <div>text message2</div>
+                <div>text message3</div>
+            </div>
+            <div class="inputBox">
+                <form id='messageForm'>
+                    <input type="text" class='textBox form-control' autocomplete="off" name='message' placeholder="Message">
+                </form>
+            </div>
+        <%}else if(!renderOBJ.convoAttempt){%>
+            <div class="MessageBox lightBlack-bg seperatingBorder-top">
+                <div><h1>Welcome back, your started conversations are on the left of your screen!</h1></div>
+            </div>
+        <%}else{%>
+            <div class="MessageBox lightBlack-bg seperatingBorder-top">
+                <div><h1>wrong url?</h1></div>
+                <hr/>
+                <div><h1>You don't have any conversation with this url linked with your account!</h1></div>
+                <hr/>
+                <div><h1>404, CONVERSATION NOT FOUND.</h1></div>
+            </div>
+        <%}%>
     </div>
-    <script src='/socket.io/socket.io.js'></script>
-    <script src='/public/JS/socketio/socket.js'></script>
+    <% if(renderOBJ.convoExist){ %>
+        <script src='/socket.io/socket.io.js'></script>
+        <script src='/public/JS/socketio/socket.js'></script>
+    <%}%>
 </body>
 </html>
