@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%- include('../login/utils/redirectToLogin.ejs') %>
     <%- include('../bootstrap/bootstrap.ejs') %>
+    <script>
+        const searchUser=()=>{
+            console.log('exec')
+            const usernameSearch = document.querySelector('#searchInput').value;
+            console.log('/search/'+usernameSearch)
+            window.location.href = '/search/'+usernameSearch;
+        }
+    </script>
     <link rel="stylesheet" href="/public/message/css/message.css">
     <title>Messages</title>
 </head>
@@ -18,10 +26,10 @@
                 <div>friend3</div>
             </div>
             <div is="searchContainer">
-                <form action="/search" method="GET">
-                    <input type="text" class='textBox form-control' autocomplete="off" name='username' placeholder="Search user">
-                    <input class='btn btn-success btn-md' type="submit" value="Search">
-                </form>
+                <div>
+                    <input type="text" id='searchInput' class='textBox form-control' autocomplete="off" name='username' placeholder="Search user">
+                    <button class='btn btn-success btn-md' onclick="searchUser()">Search</button>
+                </div>
             </div>
         </div>
         <% if(renderOBJ.convoExist && renderOBJ.convoAttempt ){ %>
