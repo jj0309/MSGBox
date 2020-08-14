@@ -48,7 +48,7 @@ const updateConvoList=async(users,convoID)=>{
                     let newConvo = true;
                     // to check if convo with that user already exists
                     bothUsers.forEach(user => {
-                        if(foundUser.userList.includes(user));
+                        if(foundUser.userList.includes(user))
                             newConvo = false;
                     });
                     if(newConvo){
@@ -59,7 +59,7 @@ const updateConvoList=async(users,convoID)=>{
 
                         // to push the username of eachothers into eachothers useList
                         bothUsers.forEach(user => {
-                            if(updateUser.username != user)
+                            if(updatedUser.username != user)
                                 userListARR.push(user);
                         });
 
