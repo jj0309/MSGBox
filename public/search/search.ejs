@@ -13,7 +13,7 @@
         <div class="container lightBlackContrast-bg text-center">
             <div><h1>Search Result</h1></div>
             <div><%= renderOBJ.foundUser.username %></div>
-            <button class='btn btn-success btn-md'>Send conversation request</button>
+            <a href=<%= '/request/'+renderOBJ.foundUser.username %>><button class='btn btn-success btn-md'>Send conversation request</button></a>
         </div>
     </div> 
 </body>

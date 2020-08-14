@@ -7,7 +7,8 @@ const MessagesSchema = new mongoose.Schema({
     },
     activated:{ // receiver must accept convo invite 
         type:Boolean,
-        default:false
+        default:false,
+        required:false
     },
     inviteReceiver:{ // receiver username
         type:String,

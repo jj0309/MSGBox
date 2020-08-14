@@ -15,8 +15,7 @@ const authenticateToken=(req,res,next)=>{
 const isLogged=(user)=>{
     if(user)
         return user;
-    else
-        return false;
+    return false;
 }
 
 exports.isLogged = isLogged;

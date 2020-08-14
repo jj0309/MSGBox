@@ -27,6 +27,10 @@ const userSchema = new mongoose.Schema({
     convos:{
         type:Array,
         required:false
+    },
+    userList:{
+        type:Array,
+        required:false
     }
 })
 
