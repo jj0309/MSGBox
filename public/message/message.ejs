@@ -32,7 +32,13 @@
         </div>
         <% if(renderOBJ.convoExist && renderOBJ.convoAttempt ){ %>
             <div class="MessageBox lightBlack-bg seperatingBorder-top">
-                
+                <% if(renderOBJ.conversation){ %>
+                    <%for(let index=0;index<renderOBJ.conversation.length;index++){%>
+                        <%for(key in renderOBJ.conversation[index]){%>
+                            <div><%= key %>: <%= renderOBJ.conversation[index][key] %></div>
+                        <%}%>
+                    <%}%>
+                <%}%>
             </div>
             <div class="inputBox">
                 <form id='messageForm'>
