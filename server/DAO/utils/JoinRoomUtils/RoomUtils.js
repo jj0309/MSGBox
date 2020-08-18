@@ -11,8 +11,9 @@ const userModel = require('../../models/user');
                 -> retrieveConvosList()
                 -> buildConvoListKeysLS()
                 -> insertNewMessage()
+                -> retrieveConversationMessages()
 
-    LAST UPDATED: 18/08/2020 -> added insertNewMessage()
+    LAST UPDATED: 18/08/2020 -> added retrieveConversationMessages()
     - KA-SON CHAU
 */
 
