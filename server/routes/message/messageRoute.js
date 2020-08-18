@@ -37,6 +37,7 @@ module.exports = function(io){
                     io.emit('return message',{surname:usernameIO,sentMSG:message});
                 })
             })
+            renderOBJ.conversation = await roomUtilLib.retrieveConversationMessages(paramRoomID);
         }
         renderOBJ.convoExist = convoExist;
         res.render('../public/message/message.ejs',renderOBJ);

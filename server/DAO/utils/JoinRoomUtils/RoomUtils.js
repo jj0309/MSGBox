@@ -16,6 +16,17 @@ const userModel = require('../../models/user');
     - KA-SON CHAU
 */
 
+const retrieveConversationMessages=(convoID)=>{
+    return new Promise(async(resolve,reject)=>{
+        await messages.findById(convoID,(error,foundConvo)=>{
+            if(error) reject(error);
+            if(foundConvo){
+                resolve(foundConvo.messages);
+            }
+            resolve(null);
+        })
+    })
+}
 
 /* 
     to insert a message into the DB when user sends a message
@@ -201,3 +212,4 @@ exports.addConvoIndex = addConvoIndex;
 exports.retrieveConvosList = retrieveConvosList;
 exports.buildConvoListKeysLS = buildConvoListKeysLS;
 exports.insertNewMessage = insertNewMessage;
+exports.retrieveConversationMessages = retrieveConversationMessages;
