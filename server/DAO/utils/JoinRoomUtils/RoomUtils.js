@@ -17,6 +17,11 @@ const userModel = require('../../models/user');
     - KA-SON CHAU
 */
 
+/* 
+    to retrieve all conversation messages of a conversation
+    param1:conversation ID in the DB
+    return: list object messages of conversation
+*/
 const retrieveConversationMessages=(convoID)=>{
     return new Promise(async(resolve,reject)=>{
         await messages.findById(convoID,(error,foundConvo)=>{
