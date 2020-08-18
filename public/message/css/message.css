@@ -5,6 +5,11 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.FriendList a , .FriendList a:visited{
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
 .MessageBox{
     grid-column: 4/21;
     grid-row: 1/18;

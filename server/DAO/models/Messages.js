@@ -26,6 +26,10 @@ const MessagesSchema = new mongoose.Schema({
             }
         */
         required:false
+    },
+    users:{
+        type:Array,
+        required:true
     }
 })
 

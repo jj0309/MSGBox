@@ -2,13 +2,64 @@ const messages = require('../../models/Messages');
 const userModel = require('../../models/user');
 
 /* 
-    VALIDATE IF THE CONVO EXISTS IN THE DB
+    to retrieve list of all convos of the user
+    param1:username
+    return: list of all convos in object form {convoID:nameOfPerson}
 */
-const roomValidation=async(roomID)=>{
+const retrieveConvosList=(username)=>{
+    return new Promise(async(resolve,reject)=>{
+        await userModel.findOne({username:username},async(error,foundUser)=>{
+            if(error) return reject(error);
+            resolve(await retrieveConvosListName(foundUser.convos,username));
+        })
+    })
+}
+
+/* 
+    called in retrieveconvoList
+    param1:convoIDList
+    param2:username of the user the list belongs to
+*/
+const retrieveConvosListName=async(convoIDList,username)=>{
+    let convoListAndName = {};
+    for(let index = 0;index<convoIDList.length;index++){
+        convo = convoIDList[index];
+        await messages.findById(convo,(error,foundConvo)=>{
+            if(error) console.log(error);
+            foundConvo.users.forEach(user => {
+                if(user != username){
+                    const convoIndex = foundConvo.convoIndex;
+                    convoListAndName[convoIndex] = user;
+                }
+            });
+        })
+    };
+    return convoListAndName;
+}
+
+/*
+    build convo keys for access during rendering
+    param1:convoLists object (key:value)
+    return list of convo keys
+*/
+const buildConvoListKeysLS=(convoList)=>{
+    let keyList = [];
+    for(key in convoList)
+        keyList.push(key);
+    return keyList;
+}
+
+/* 
+    VALIDATE IF THE CONVO EXISTS IN THE DB AND IN THE USER CONVOLIST
+    param1: roomID
+    param2: convolist of user from db
+*/
+const roomValidation=async(roomID,convoList)=>{
     return new Promise(async(resolve,reject)=>{
         await messages.findOne({convoIndex:roomID},(error,foundConvo)=>{
             if(error) return reject(error);
-            if(foundConvo) resolve(true);
+            if(convoList === undefined) resolve(false);
+            if(foundConvo && convoList.includes(roomID)) resolve(true);
             resolve(false);
         })
     })
@@ -19,9 +70,9 @@ const roomValidation=async(roomID)=>{
     PARAM1:USER THAT HAS TO ACCEPT THE INVITE
     RETURN:convoID
 */
-const createNewConvo=async(receiverUser)=>{
+const createNewConvo=async(users)=>{
     return new Promise(async(resolve,reject)=>{
-        let newMessages = new messages({inviteReceiver:receiverUser,activated:false});
+        let newMessages = new messages({inviteReceiver:users[1],activated:false,users:users});
         try{
             await newMessages.save((error)=>{
                 if(error) reject(error)
@@ -30,14 +81,23 @@ const createNewConvo=async(receiverUser)=>{
         }catch(e){reject(error)}
     })
 }
-
+/* 
+    ADDS INDEX INTO CONVOLIST IN THE DB
+    PARAM1:CONVOID
+    PARAM2:USER
+    PARAM3:OTHER USER
+*/
 const addConvoIndex=async(convoID,user,receivingUser)=>{
     return new Promise(async(resolve,reject)=>{
         if(convoID === null || convoID === undefined) reject(false);
         resolve(await updateConvoList([user,receivingUser],convoID));
     })
 }
-
+/* 
+    UPDATES CONVOLIST AND USERLIST IN THE DB
+    PARAM1:ARRAY OF BOTH USERS
+    PARAM2:CONVOID
+*/
 const updateConvoList=async(users,convoID)=>{
     return new Promise(async(resolve,reject)=>{
         const bothUsers = users; // to verify userList
@@ -74,7 +134,11 @@ const updateConvoList=async(users,convoID)=>{
     });
 }
 
-
+/* 
+    to update user in the DB
+    param1:username
+    param2:new user object
+*/
 const updateUser=async(userToUpdate,updatedUser)=>{
     return new Promise(async(resolve,reject)=>{
         await userModel.findOneAndUpdate({username:userToUpdate},updatedUser,(error)=>{
@@ -87,3 +151,5 @@ const updateUser=async(userToUpdate,updatedUser)=>{
 exports.roomValidation = roomValidation;
 exports.createNewConvo = createNewConvo;
 exports.addConvoIndex = addConvoIndex;
+exports.retrieveConvosList = retrieveConvosList;
+exports.buildConvoListKeysLS = buildConvoListKeysLS;

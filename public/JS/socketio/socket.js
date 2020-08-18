@@ -4,8 +4,8 @@ window.addEventListener('load',()=>{
     socket.emit('subscribe',roomName[2]);
     document.querySelector('#messageForm').addEventListener('submit',(event)=>{
         event.preventDefault(); // no reload
-        socket.emit('send message',document.querySelector('.textBox').value);
-        document.querySelector('.textBox').value='';
+        socket.emit('send message',document.querySelector('#sendMSGBox').value);
+        document.querySelector('#sendMSGBox').value='';
         return false;
     });
     socket.on('return message',data=>{ document.querySelector('.MessageBox').appendChild(newMessage(data));

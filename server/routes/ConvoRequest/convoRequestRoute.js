@@ -8,7 +8,8 @@ router.get('/:username',authLib.authenticateToken,async(req,res)=>{
         return res.redirect('/login');
     const user = req.user.username;
     const sentUser = req.params.username;
-    const convoID = await roomUtilsLib.createNewConvo(sentUser);
+    const users = [user,sentUser];
+    const convoID = await roomUtilsLib.createNewConvo(users);
     await roomUtilsLib.addConvoIndex(convoID,user,sentUser);
     res.redirect('/messages');
 })

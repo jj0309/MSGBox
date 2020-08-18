@@ -19,9 +19,9 @@
     <div class='grid-20-20 WidthHeight-100 lightBlackContrast-bg remove-padding-margin'>
         <div class="FriendList lightBlackContrast-bg text-light seperatingBorder-top" style="height:100%">
             <div id="friendContainer">
-                <div>friend1</div>
-                <div>friend2</div>
-                <div>friend3</div>
+                <% for(let index = 0;index<renderOBJ.convoKeys.length;index++){ %>
+                    <a href='/messages/<%=renderOBJ.convoKeys[index]%>'><div><%= renderOBJ.convoList[renderOBJ.convoKeys[index]] %></div></a>
+                <%}%>
             </div>
             <div is="searchContainer">
                 <div>
@@ -36,7 +36,7 @@
             </div>
             <div class="inputBox">
                 <form id='messageForm'>
-                    <input type="text" class='textBox form-control' autocomplete="off" name='message' placeholder="Message">
+                    <input type="text" id="sendMSGBox"class='textBox form-control' autocomplete="off" name='message' placeholder="Message">
                 </form>
             </div>
         <%}else if(!renderOBJ.convoAttempt){%>
