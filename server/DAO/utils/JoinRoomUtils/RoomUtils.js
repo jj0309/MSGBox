@@ -1,6 +1,53 @@
 const messages = require('../../models/Messages');
 const userModel = require('../../models/user');
 
+
+/* 
+    Library of methods used for messageRoute and convoRequestRoute.
+    PS: CTRL+F TO QUICK FIND THE METHODS
+    CONTAINS:   -> roomValidation()
+                -> createNewConvo()
+                -> addConvoIndex()
+                -> retrieveConvosList()
+                -> buildConvoListKeysLS()
+                -> insertNewMessage()
+
+    LAST UPDATED: 18/08/2020 -> added insertNewMessage()
+    - KA-SON CHAU
+*/
+
+
+/* 
+    to insert a message into the DB when user sends a message
+    param1:username of user that sends the message
+    param2: conversation id
+    param3:message value in string
+*/
+const insertNewMessage=(userName,convoID,messageValue)=>{
+
+    const insertIntoDB=async(convoIndex,updatedConvo)=>{
+        await messages.findByIdAndUpdate(convoIndex,updatedConvo);
+    }
+
+    let convoList = [];
+    return new Promise(async(resolve,reject)=>{
+        await messages.findById(convoID,(error,foundConvo)=>{
+            if(error) reject(error);
+            if(foundConvo){
+                let messageOBJ = {};
+                let updatedConvo = foundConvo;
+                messageOBJ[userName] = messageValue;
+                convoList = foundConvo.messages;
+                convoList.push(messageOBJ);
+                updatedConvo.messages = convoList;
+                insertIntoDB(convoID,updatedConvo);
+            }
+            resolve(true);
+        });
+    })
+}
+
+
 /* 
     to retrieve list of all convos of the user
     param1:username
@@ -153,3 +200,4 @@ exports.createNewConvo = createNewConvo;
 exports.addConvoIndex = addConvoIndex;
 exports.retrieveConvosList = retrieveConvosList;
 exports.buildConvoListKeysLS = buildConvoListKeysLS;
+exports.insertNewMessage = insertNewMessage;

@@ -15,7 +15,7 @@ const MessagesSchema = new mongoose.Schema({
         required:true
     },
     messages:{
-        type:Object, 
+        type:Array, 
         /* object is gonna be like this
             {
                 {username:'message'},

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authLib = require('../../DAO/utils/AuthToken/Token');
 const roomUtilLib = require('../../DAO/utils/JoinRoomUtils/RoomUtils');
-const messages = require('../../DAO/models/Messages');
+
 module.exports = function(io){
     router.get('/',authLib.authenticateToken,async(req,res)=>{
         renderOBJ = {};
@@ -32,7 +32,8 @@ module.exports = function(io){
                 socket.on('subscribe',function(roomID){ // do not use this roomID (changeable from frontend)
                     socket.join(paramRoomID);
                 })
-                socket.on('send message',(message)=>{
+                socket.on('send message',async(message)=>{
+                    await roomUtilLib.insertNewMessage(usernameIO,paramRoomID,message);
                     io.emit('return message',{surname:usernameIO,sentMSG:message});
                 })
             })
