@@ -31,10 +31,10 @@ module.exports = function(io){
             io.once('connection',(socket)=>{
                 socket.on('subscribe',function(roomID){ // do not use this roomID (changeable from frontend)
                     socket.join(paramRoomID);
-                })
-                socket.on('send message',async(message)=>{
-                    await roomUtilLib.insertNewMessage(usernameIO,paramRoomID,message);
-                    io.emit('return message',{surname:usernameIO,sentMSG:message});
+                    socket.on('send message',async(message)=>{
+                        await roomUtilLib.insertNewMessage(usernameIO,paramRoomID,message);
+                        io.to(paramRoomID).emit('return message',{surname:usernameIO,sentMSG:message});
+                    })
                 })
             })
             renderOBJ.conversation = await roomUtilLib.retrieveConversationMessages(paramRoomID);
