@@ -20,10 +20,15 @@
         <div class="FriendList lightBlackContrast-bg text-light seperatingBorder-top" style="height:100%">
             <div id="friendContainer">
                 <% for(let index = 0;index<renderOBJ.convoKeys.length;index++){ %>
-                    <a href='/messages/<%=renderOBJ.convoKeys[index]%>'><div><%= renderOBJ.convoList[renderOBJ.convoKeys[index]] %></div></a>
+                    <a href='/messages/<%=renderOBJ.convoKeys[index]%>'>
+                        <div>
+                            <img class="rounded-circle" src="/public/message/sampleImage/profilePic.png" alt="userpic" width="32px" height="32px">
+                            <%= renderOBJ.convoList[renderOBJ.convoKeys[index]] %>
+                        </div>
+                    </a>
                 <%}%>
             </div>
-            <div is="searchContainer">
+            <div id="searchContainer">
                 <div>
                     <input type="text" id='searchInput' class='textBox form-control' autocomplete="off" name='username' placeholder="Search user">
                     <button class='btn btn-success btn-md' onclick="searchUser()">Search</button>
@@ -32,7 +37,10 @@
         </div>
         <template id='MSGTemplate'>
             <div class="MessageWrapper">
-                <h6 class="TextUserName">username</h6>
+                <div class='MessageUserID'>
+                    <img class="rounded-circle" src="/public/message/sampleImage/profilePic.png" alt="userpic" width="32px" height="32px">
+                    <h6 class="TextUserName">username</h6>
+                </div>
                 <p class="MessageValue">textValue</p>
             </div>
         </template>
@@ -42,7 +50,10 @@
                     <%for(let index=0;index<renderOBJ.conversation.length;index++){%>
                         <%for(key in renderOBJ.conversation[index]){%>
                             <div class="MessageWrapper">
-                                <h6 class="TextUserName"><%= key %></h6>
+                                <div class='MessageUserID'>
+                                    <img class='rounded-circle' src="/public/message/sampleImage/profilePic.png" alt="userpic" width="32px" height="32px">
+                                    <h6 class="TextUserName"><%= key %></h6>
+                                </div>
                                 <p class="MessageValue"><%= renderOBJ.conversation[index][key] %></p>
                             </div>
                         <%}%>

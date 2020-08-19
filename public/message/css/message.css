@@ -8,18 +8,52 @@
 .FriendList a , .FriendList a:visited{
     color: white;
     text-decoration: none;
-    text-align: center;
+    
+}
+#friendContainer{
+    padding-left: 1em ;
+}
+#friendContainer div{
+    margin-top: 0.5em;
+    border-radius: 15px;
+}
+#friendContainer div:hover{
+    background-color: rgb(54, 57, 64);
+}
+#searchContainer div{
+    display: flex;
+}
+
+/* message */
+.MessageWrapper{
+    padding-left: 1em;
 }
 .MessageBox{
     grid-column: 4/21;
-    grid-row: 1/18;
+    grid-row: 1/19;
     color: whitesmoke;
     overflow: scroll;
     overflow-x: hidden;
 }
+.MessageBox div:hover{
+    background-color: rgb(48, 49, 54);
+}
+.MessageUserID{
+    display: flex;
+    flex-direction: row;
+}
+.MessageUserID img{
+    margin-right: 1em;
+}
+.MessageValue{
+    margin-left: 3em;
+}
+/* ------------------------------------- */
+
+
 .inputBox{
     grid-column: 4/21;
-    grid-row: 18/20;
+    grid-row: 19/21;
     background-color: #42454D;
 }
 .textBox,#messageForm{
