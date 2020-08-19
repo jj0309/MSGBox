@@ -30,12 +30,21 @@
                 </div>
             </div>
         </div>
+        <template id='MSGTemplate'>
+            <div class="MessageWrapper">
+                <h6 class="TextUserName">username</h6>
+                <p class="MessageValue">textValue</p>
+            </div>
+        </template>
         <% if(renderOBJ.convoExist && renderOBJ.convoAttempt ){ %>
             <div class="MessageBox lightBlack-bg seperatingBorder-top">
                 <% if(renderOBJ.conversation){ %>
                     <%for(let index=0;index<renderOBJ.conversation.length;index++){%>
                         <%for(key in renderOBJ.conversation[index]){%>
-                            <div><%= key %>: <%= renderOBJ.conversation[index][key] %></div>
+                            <div class="MessageWrapper">
+                                <h6 class="TextUserName"><%= key %></h6>
+                                <p class="MessageValue"><%= renderOBJ.conversation[index][key] %></p>
+                            </div>
                         <%}%>
                     <%}%>
                 <%}%>

@@ -8,12 +8,19 @@ window.addEventListener('load',()=>{
         document.querySelector('#sendMSGBox').value='';
         return false;
     });
-    socket.on('return message',data=>{ document.querySelector('.MessageBox').appendChild(newMessage(data));
+    let scrollable = document.querySelector(".MessageBox");
+    scrollable.scrollTop = scrollable.scrollHeight - scrollable.clientHeight;
+    socket.on('return message',data=>{ 
+        document.querySelector('.MessageBox').appendChild(newMessage(data));
+        scrollable.scrollTop = scrollable.scrollHeight - scrollable.clientHeight;
     })
 })
 
 const newMessage=(data)=>{
+    let templateHtml = document.querySelector('#MSGTemplate').innerHTML;
     let newNode = document.createElement('div');
-    newNode.innerHTML = data.surname+': '+data.sentMSG;
+    newNode.innerHTML = templateHtml;
+    newNode.querySelector('.TextUserName').innerHTML = data.surname;
+    newNode.querySelector('.MessageValue').innerHTML = data.sentMSG;
     return newNode;
 }
