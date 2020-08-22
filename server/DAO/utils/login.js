@@ -31,8 +31,12 @@ const passwordValidation=(userData,foundUser)=>{
 }
 
 const jwtSign=(token)=>{
-    return jwt.sign(token,process.env.ACCESS_TOKEN_SECRET);
+    return jwt.sign(token,process.env.ACCESS_TOKEN_SECRET,{expiresIn:'15s'});
+}
+const jwtSignRefresh=(token)=>{
+    return jwt.sign(token,process.env.REFRESH_TOKEN_SECRET);
 }
 
 exports.loginValidation = loginValidation;
 exports.jwtSign = jwtSign;
+exports.jwtSignRefresh = jwtSignRefresh;
