@@ -7,7 +7,8 @@ window.addEventListener('load',()=>{
             }
         ).catch(e=>{console.log('refresh token error: ',e)})
     }
+    refreshToken();
     setInterval(() => {
         refreshToken();
-    }, 5000);
+    }, 250000);
 })

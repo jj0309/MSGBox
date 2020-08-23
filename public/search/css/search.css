@@ -5,3 +5,10 @@
     color: whitesmoke;
     height: 100%;
 }
+.HalfWidth{
+    width: 50%;
+}
+hr{
+    margin: 2em 0;
+    background-color: skyblue;
+}

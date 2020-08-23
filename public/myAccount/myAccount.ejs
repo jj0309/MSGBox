@@ -6,29 +6,31 @@
     <%- include('../bootstrap/bootstrap.ejs') %>
     <%- include('../JS/fetch/fetchToken/refreshTokenPartials.ejs') %>
     <link rel="stylesheet" href="/public/search/css/search.css">
-    <title>Search Result</title>
+    <title>My account</title>
 </head>
 <body>
     <%- include('../navbar/navbar.ejs') %>
     <div class='Wrapper lightBlack-bg'>
         <div class="container lightBlackContrast-bg text-center">
-            <div><h1 class="page-header text-primary">Search Result</h1></div>
+            <div><h1 class="page-header text-primary">My account</h1></div>
+            <div class="alert alert-info" role="alert">
+                PS: You can edit informations of your profile in the user pannel!
+              </div>
             <hr/>
             <div class='row'>
                 <div class="col-sm-9">
-                    <h1 class='text-danger Username'><%= renderOBJ.foundUser.username %></h1>
-                    <p class="HalfWidth mx-auto Description"><%= renderOBJ.foundUser.username %> is a mysterious one and has not added a description to his profile yet.</p>
+                    <h1 class='text-danger Username'><%= renderOBJ.user.username %></h1>
+                    <p class="HalfWidth mx-auto Description">You don't have a description yet! Access your user pannel and add one!</p>
                 </div>
                 <div class="row col-sm-3">
                     <img src="/public/search/images/profile.jpg" class="ProfilePic col-sm-12 img-fluid rounded mx-auto" alt="Responsive profile image">
                 </div>
             </div>
-            <a href=<%= '/request/'+renderOBJ.foundUser.username %>><button class='btn btn-success btn-md'>Send conversation request</button></a>
             <hr/>
             <div class="row">
                 <div class="col-sm-12 text-warning text-center">
                     <h2 class="pageHeader">Achievements</h2>
-                    <p class="HalfWidth mx-auto Description text-danger">Nothing yet, that's a bummer :^( </p>
+                    <p class="HalfWidth mx-auto Description text-info"> Your achievements are usually shown below but you don't have any yet!</p>
                 </div>
             </div>
         </div>

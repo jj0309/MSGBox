@@ -35,14 +35,15 @@ router.post('/',async(req,res)=>{
 
 router.post('/token/',(req,res)=>{
     const refreshToken = req.cookies.Refresh;
-    console.log(req.cookies.MSGBoxCookie);
     if(refreshToken === null || refreshToken === undefined) return res.redirect('/login');
-    if(!refreshTokenLS.includes(refreshToken)) return res.sendStatus(403);
+    //removed verification while we're developing (for server restart)
+    /* if(!refreshTokenLS.includes(refreshToken)) return res.sendStatus(403); */
     jwt.verify(refreshToken,process.env.REFRESH_TOKEN_SECRET,(error,user)=>{
         if(error) return res.sendStatus(403);
         const accessToken = loginLib.jwtSign({_id:user._id,username:user.username})
         res.cookie('MSGBoxCookie',accessToken);
     })
+    res.sendStatus(201);
 })
 
 module.exports = router;
