@@ -7,6 +7,10 @@ The application has been deployed: https://msgbox-app.herokuapp.com/
 
 - Guest account: username: guest | password: aaaAAA111
 
+*KNOWN ISSUES*
+- Searching for an user that doesn't exist returns a page -> need to return a user not found result
+- User pannel has been disabled -> production issue with the database
+
 
 # Alpha 0.1 (8/19/2020):
 
