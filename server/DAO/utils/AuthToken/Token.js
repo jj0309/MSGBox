@@ -5,7 +5,7 @@ const authenticateToken=(req,res,next)=>{
     if(req.cookies.MSGBoxCookie){
         const token = req.cookies.MSGBoxCookie;
         jwt.verify(token,process.env.ACCESS_TOKEN_SECRET,(err,user)=>{
-            if(err) return res.status(400).send(err);
+            if(err) return next();
             req.user = user;
         })
     }

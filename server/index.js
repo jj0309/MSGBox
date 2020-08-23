@@ -50,4 +50,4 @@ app.use('/myaccount',myAccountRoute);
 
 
 //is up
-server.listen(port,console.log('running on port ',port));
+server.listen(port || 80 ,console.log('running on port 80 or ',port));

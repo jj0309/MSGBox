@@ -29,7 +29,6 @@ router.post('/',async(req,res)=>{
         res.cookie('Refresh',refreshToken);
     }
     refreshTokenLS.push(refreshToken);
-    console.log(refreshTokenLS);
     res.redirect('/login');
 })
 

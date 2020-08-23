@@ -1,6 +1,6 @@
 .jumbotron{
     width: 100%;
-    height: 50%;
+    height: 60vh;
     overflow: hidden;
     background-color: rgba(35,35,35, 0.3);
     color: white;
@@ -12,19 +12,17 @@
 }
 #jumbotronVid{
     position: absolute;
-    height: 48vh;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
     z-index: 1;
     box-shadow: 0px 5px rgba(35,35,35, 0.9);
 }
 #jumbotronVid video{
-    position: absolute; 
-    right: 0; 
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto; 
+    width: 100%;
+    height: 100%;
+    object-fit: none;
     background-size: cover;
     overflow: hidden;
 }
@@ -44,11 +42,19 @@
     text-shadow: 2px 2px black;
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width:1024px){
     .display-2{
         font-size: 3em;
     }
     .presentationimgHalf{
         width: 80%;
+    }
+    section{
+        margin-top: 20em;
+    }
+}
+@media only screen and (max-width:768px){
+    section{
+        margin-top: 0;
     }
 }
