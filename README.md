@@ -4,7 +4,8 @@ A messaging web app sort of like discord.
 
 # Alpha 0.2 (8/23/2020):
 The application has been deployed: https://msgbox-app.herokuapp.com/
-Guest account: username: guest | password: aaaAAA111
+
+- Guest account: username: guest | password: aaaAAA111
 
 
 # Alpha 0.1 (8/19/2020):
