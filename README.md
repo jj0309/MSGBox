@@ -6,6 +6,7 @@ A messaging web app sort of like discord.
 The application has been deployed: https://msgbox-app.herokuapp.com/
 
 - Guest account: username: guest | password: aaaAAA111
+- Guest2 account: username: guest2 | password: aaaAAA111
 
 *KNOWN ISSUES*
 - Searching for an user that doesn't exist returns a page -> need to return a user not found result
