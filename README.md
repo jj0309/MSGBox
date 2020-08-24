@@ -2,6 +2,16 @@
 
 A messaging web app sort of like discord.
 
+# Alpha 0.2 (8/23/2020):
+The application has been deployed: https://msgbox-app.herokuapp.com/
+
+- Guest account: username: guest | password: aaaAAA111
+
+*KNOWN ISSUES*
+- Searching for an user that doesn't exist returns a page -> need to return a user not found result
+- User pannel has been disabled -> production issue with the database
+- jwt invalidated after browser closes will return an error page if the user returns to the site.
+
 
 # Alpha 0.1 (8/19/2020):
 
