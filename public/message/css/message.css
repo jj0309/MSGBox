@@ -66,3 +66,19 @@
     background-color: #545863;
     color: whitesmoke;
 }
+
+
+@media only screen and (max-width:768px){
+    .MessageBox{
+        grid-column: 1/21;
+        grid-row: 4/19;
+    }
+    .inputBox{
+        grid-column: 1/21;
+        grid-row: 19/21;
+    }
+    .FriendList{
+        grid-column: 1/21;
+        grid-row: 1/4;
+    }
+}

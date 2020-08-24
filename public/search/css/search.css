@@ -12,3 +12,13 @@ hr{
     margin: 2em 0;
     background-color: skyblue;
 }
+
+
+@media only screen and (max-width:768px){
+    .Wrapper{
+        height: 150vh;
+    }
+   .ProfilePic img{
+        width: 50%;
+    }
+}
