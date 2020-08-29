@@ -31,6 +31,11 @@ const userSchema = new mongoose.Schema({
     userList:{
         type:Array,
         required:false
+    },
+    description:{
+        type:String,
+        required:false,
+        trim:true,
     }
 })
 

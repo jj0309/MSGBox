@@ -1,4 +1,5 @@
 const imageModel = require('../../models/UserPic');
+const userModel = require('../../models/user');
 
 /* 
     Library for user pannel transaction with the database.
@@ -19,4 +20,16 @@ const updateImage=(userToUpdate,image)=>{
     })
 }
 
+const updateDESC=(userToUpdate,newDesc)=>{
+    return new Promise(async(resolve,rejec)=>{
+        await userModel.findOneAndUpdate({username:userToUpdate},{description:newDesc},(error,foundUser)=>{
+            if(error) reject(error);
+            if(foundUser)
+                resolve(true);
+            resolve(false);
+        })
+    })
+}
+
 exports.updateImage = updateImage;
+exports.updateDESC = updateDESC;

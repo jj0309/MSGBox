@@ -18,20 +18,20 @@
                 PS: You can edit informations of your profile using the edit button!
               </div>
             <hr/>
-            <form class='row' action="/editProfileInfos" method="POST">
+            <form class='row' action="/editProfileInfos" method="POST" enctype="multipart/form-data">
                 <div class="col-sm-9">
                     <h1 class='text-danger Username'><%= renderOBJ.user.username %></h1>
                     <p class="onEditHide HalfWidth mx-auto Description">You don't have a description yet! Access your edit pannel and add one!</p>
                     <textarea class="UserPannelDisplay textAreaDesc HalfWidth mx-auto" name='new decription' rows='6' cols="50" style='resize: none'></textarea>
                     <button class='onEditHide btn btn-success btn-md' type='button' onclick="showEditPannel()">Edit informations</button>
                     <div class="UserPannelDisplay row justify-content-center my-3">
-                        <button class='col-sm-2 btn btn-success btn-sm' onclick="">Save changes</button>
+                        <button class='col-sm-2 btn btn-success btn-sm' type='submit'>Save changes</button>
                         <button class='col-sm-2 btn btn-danger btn-sm' type='button' onclick="hideEditPannel()">Cancel</button>
                     </div>
                 </div>
                 <div class="ProfilePic row col-sm-3">
                     <img src="/public/search/images/profile.jpg" class="ProfilePic col-sm-12 img-fluid rounded mx-auto" alt="Responsive profile image">
-                    <input type='file' class='UserPannelDisplay' name='uploadPic'>
+                    <input type='file' class='UserPannelDisplay' name='profilePic'>
                 </div>
             </form>
             <hr/>
