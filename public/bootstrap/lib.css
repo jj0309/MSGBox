@@ -34,3 +34,6 @@
     width: 100%;
     height: 93%;
 }
+.HideItem{
+    display: none;
+}

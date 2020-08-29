@@ -14,6 +14,19 @@ hr{
 }
 
 
+/* 
+    for user pannel
+*/
+
+.UserPannelDisplay{
+    display: none;
+}
+.textAreaDesc{
+    background-color:rgb(48, 49, 54) ;
+    border-color: whitesmoke;
+    color: white;
+}
+
 @media only screen and (max-width:768px){
     .Wrapper{
         height: 150vh;

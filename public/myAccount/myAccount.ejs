@@ -6,6 +6,7 @@
     <%- include('../bootstrap/bootstrap.ejs') %>
     <%- include('../JS/Fetch/fetchToken/refreshTokenPartials.ejs') %>
     <link rel="stylesheet" href="/public/search/css/search.css">
+    <script src="/public/myAccount/js/myAccount.js"></script>
     <title>My account</title>
 </head>
 <body>
@@ -14,18 +15,24 @@
         <div class="container lightBlackContrast-bg text-center">
             <div><h1 class="page-header text-primary">My account</h1></div>
             <div class="alert alert-info" role="alert">
-                PS: You can edit informations of your profile in the user pannel!
+                PS: You can edit informations of your profile using the edit button!
               </div>
             <hr/>
             <div class='row'>
                 <div class="col-sm-9">
                     <h1 class='text-danger Username'><%= renderOBJ.user.username %></h1>
-                    <p class="HalfWidth mx-auto Description">You don't have a description yet! Access your user pannel and add one!</p>
+                    <p class="onEditHide HalfWidth mx-auto Description">You don't have a description yet! Access your edit pannel and add one!</p>
+                    <textarea class="UserPannelDisplay textAreaDesc HalfWidth mx-auto" name='new decription' rows='6' cols="50" style='resize: none'></textarea>
+                    <button class='onEditHide btn btn-success btn-md' onclick="showEditPannels()">Edit informations</button>
+                    <div class="row justify-content-center my-3">
+                        <button class='UserPannelDisplay col-sm-2 btn btn-success btn-sm' onclick="">Save changes</button>
+                        <button class='UserPannelDisplay col-sm-2 btn btn-danger btn-sm' onclick="">Cancel</button>
+                    </div>
                 </div>
                 <div class="ProfilePic row col-sm-3">
                     <img src="/public/search/images/profile.jpg" class="ProfilePic col-sm-12 img-fluid rounded mx-auto" alt="Responsive profile image">
+                    <input type='file' class='UserPannelDisplay' name='uploadPic'>
                 </div>
-
             </div>
             <hr/>
             <div class="row">
