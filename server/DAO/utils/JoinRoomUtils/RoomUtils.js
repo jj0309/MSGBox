@@ -5,13 +5,13 @@ const userModel = require('../../models/user');
 /* 
     Library of methods used for messageRoute and convoRequestRoute.
     PS: CTRL+F TO QUICK FIND THE METHODS
-    CONTAINS:   -> roomValidation()
-                -> createNewConvo()
-                -> addConvoIndex()
-                -> retrieveConvosList()
-                -> buildConvoListKeysLS()
-                -> insertNewMessage()
-                -> retrieveConversationMessages()
+    CONTAINS:   -> roomValidation
+                -> createNewConvo
+                -> addConvoIndex
+                -> retrieveConvosList
+                -> buildConvoListKeysLS
+                -> insertNewMessage
+                -> retrieveConversationMessages
 
     LAST UPDATED: 18/08/2020 -> added retrieveConversationMessages()
     - KA-SON CHAU
