@@ -9,7 +9,7 @@ const userModel = require('../../models/user');
     - Ka-son Chau
 */
 
-const updateImage=(userToUpdate,image)=>{
+const updateImage=async(userToUpdate,image)=>{
     return new Promise(async(resolve,reject)=>{
         await imageModel.findOneAndUpdate({username:userToUpdate},{img:image},(error,foundUser)=>{
             if(error) reject(error);
@@ -20,8 +20,8 @@ const updateImage=(userToUpdate,image)=>{
     })
 }
 
-const updateDESC=(userToUpdate,newDesc)=>{
-    return new Promise(async(resolve,rejec)=>{
+const updateDESC=async(userToUpdate,newDesc)=>{
+    return new Promise(async(resolve,reject)=>{
         await userModel.findOneAndUpdate({username:userToUpdate},{description:newDesc},(error,foundUser)=>{
             if(error) reject(error);
             if(foundUser)
