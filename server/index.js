@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const bodyparser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const upload = require('express-fileupload');
 const path = require('path');
 const http = require('http');
 const socketio = require('socket.io');
@@ -21,6 +22,8 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:true}));
 //to access cookies
 app.use(cookieParser());
+//for file upload
+app.use(upload());
 
 //public path
 const publicPath = path.join(__dirname+"/../public/");
@@ -38,6 +41,8 @@ const messageRoute = require('./routes/message/messageRoute')(io);
 const searchRoute = require('./routes/Search/searchRoute');
 const convoRequestRoute = require('./routes/ConvoRequest/convoRequestRoute');
 const myAccountRoute = require('./routes/myAccount/myAccountRoute');
+//endpoint to edit profile info
+const editProfileRoute = require('./routes/myAccount/editProfileInfosRoute');
 
 app.use('/',indexRoute);
 app.use('/login',loginRoute);
@@ -46,6 +51,7 @@ app.use('/messages',messageRoute);
 app.use('/search',searchRoute);
 app.use('/request',convoRequestRoute);
 app.use('/myaccount',myAccountRoute);
+app.use('/editProfileInfos',editProfileRoute);
 
 
 
