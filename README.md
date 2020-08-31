@@ -24,6 +24,8 @@ The application has been deployed: https://msgbox-app.herokuapp.com/
                           
 # Alpha 0.3 (8/30/2020):
 - added user pannel customization
+*KNOWN ISSUES*
+- Users profile pics are not shown => because saved files are not persistant on heroku servers
 
 # Alpha 0.2 (8/23/2020):
 
