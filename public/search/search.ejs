@@ -26,7 +26,7 @@
                     </p>
                 </div>
                 <div class="row col-sm-3">
-                    <img src="/public/search/images/profile.jpg" class="ProfilePic col-sm-12 img-fluid rounded mx-auto" alt="Responsive profile image">
+                    <img src=<%= "/image/"+renderOBJ.user.profilePic %> class="ProfilePic col-sm-12 img-fluid rounded mx-auto" alt="Responsive profile image">
                 </div>
             </div>
             <a href=<%= '/request/'+renderOBJ.user.username %>><button class='btn btn-success btn-md'>Send conversation request</button></a>
