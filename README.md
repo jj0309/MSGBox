@@ -2,30 +2,17 @@
 
 A messaging web app sort of like discord.
 
-# Alpha 0.2 (8/23/2020):
 The application has been deployed: https://msgbox-app.herokuapp.com/
 
 - Guest account: username: guest | password: aaaAAA111
 - Guest2 account: username: guest2 | password: aaaAAA111
-
-*KNOWN ISSUES*
-- Searching for an user that doesn't exist returns a page -> need to return a user not found result
-- User pannel has been disabled -> production issue with the database
-- jwt invalidated after browser closes will return an error page if the user returns to the site.
-
-
-# Alpha 0.1 (8/19/2020):
-
-![index page](https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-9/118041241_1630498620453393_3928945043650688545_n.png?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=filIPgwBNOwAX-Dklxm&_nc_ht=scontent-yyz1-1.xx&oh=408fc9c64618d7e6e08ec0baa200cd49&oe=5F696115)
-![messaging page](https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-9/118136325_342639296907698_2990882932071934658_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=MBSL-fj7p44AX8yUJxE&_nc_ht=scontent-yyz1-1.xx&oh=e317c693f4db827c522870a90ccad44f&oe=5F6204F9)
-![User search page](https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-9/118244281_725466558234521_2869796037218235120_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=2guBdCj9VRgAX80TDKc&_nc_ht=scontent-yyz1-1.xx&oh=8d19023f7950abdf91b48d79c831ff74&oe=5F669C82)
-
 
 # features: 
             - Registration
             - Authentification
             - non-volatile conversation messages (saved in DB)
             - private 1 on 1 conversation
+            - custom profile
             - Able to search and send conversation requests
             - Friendlist (conversation list)
 
@@ -34,3 +21,21 @@ The application has been deployed: https://msgbox-app.herokuapp.com/
                           -volatile conversations (not-saved in DB, everything is deleted after the user leaves the converstion page)
                           -group conversation
                           -voice calls
+                          
+# Alpha 0.3 (8/30/2020):
+- added user pannel customization
+
+# Alpha 0.2 (8/23/2020):
+
+*KNOWN ISSUES*
+- Searching for an user that doesn't exist returns a page -> need to return a user not found result
+- jwt invalidated after browser closes will return an error page if the user returns to the site.
+
+
+
+# Alpha 0.1 (8/19/2020):
+
+![index page](https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-9/118041241_1630498620453393_3928945043650688545_n.png?_nc_cat=105&_nc_sid=b96e70&_nc_ohc=filIPgwBNOwAX-Dklxm&_nc_ht=scontent-yyz1-1.xx&oh=408fc9c64618d7e6e08ec0baa200cd49&oe=5F696115)
+![messaging page](https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-9/118136325_342639296907698_2990882932071934658_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=MBSL-fj7p44AX8yUJxE&_nc_ht=scontent-yyz1-1.xx&oh=e317c693f4db827c522870a90ccad44f&oe=5F6204F9)
+![User search page](https://scontent-yyz1-1.xx.fbcdn.net/v/t1.15752-9/118244281_725466558234521_2869796037218235120_n.png?_nc_cat=102&_nc_sid=b96e70&_nc_ohc=2guBdCj9VRgAX80TDKc&_nc_ht=scontent-yyz1-1.xx&oh=8d19023f7950abdf91b48d79c831ff74&oe=5F669C82)
+
