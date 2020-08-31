@@ -10,6 +10,7 @@ const userModel = require('../../models/user');
 */
 
 const updateImage=async(userToUpdate,image)=>{
+    console.log(image);
     return new Promise(async(resolve,reject)=>{
         await imageModel.findOneAndUpdate({username:userToUpdate},{img:image},(error,foundUser)=>{
             if(error) reject(error);

@@ -29,6 +29,9 @@ app.use(upload());
 const publicPath = path.join(__dirname+"/../public/");
 //set public path
 app.use('/public',express.static(publicPath));
+//set image path
+const imagePath = path.join(__dirname+"/DAO/")
+app.use('/image',express.static(imagePath));
 
 //to use ejs as our view/templating engine
 app.set('view engine','ejs');
@@ -56,4 +59,4 @@ app.use('/editProfileInfos',editProfileRoute);
 
 
 //is up
-server.listen(port || 80 ,console.log('running on port 80 or ',port));
+server.listen(port || 80 ,console.log('running on port 80 '));

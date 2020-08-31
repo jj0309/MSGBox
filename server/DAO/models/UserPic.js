@@ -7,8 +7,8 @@ const userPicSchema = new mongoose.Schema({
         trim:true
     },
     img:{
-        data:Buffer,
-        contentType:String
+        type:String,
+        default:'server/DAO/profileImages/profile.jpg'
     }
 })
 

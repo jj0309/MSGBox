@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const imageModel = require('./UserPic');
 
 const userSchema = new mongoose.Schema({
     username:{
@@ -50,9 +51,12 @@ userSchema.pre('save',function(next){
     if(!user.isModified('password')){
         return next();
     }
+    const newImage = new imageModel({username:user.username})
+    newImage.save((error)=>{
+        if(error) throw error;
+    })
     bcrypt.hash(user.password,salt,(error,hashed)=>{
         if(error){
-            console.log(error)
             return next(error);
         }
         user.password = hashed;

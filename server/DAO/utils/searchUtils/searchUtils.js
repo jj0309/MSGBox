@@ -1,5 +1,5 @@
 const user = require('../../models/user');
-const messages = require('../../models/Messages');
+const UserPic = require('../../models/UserPic');
 
 /* 
     when searching for an user
@@ -12,7 +12,8 @@ const findUser=async(parsedUsername)=>{
             if(error) return reject(error);
             if(foundUser){
                 returnOBJ={
-                    username:foundUser.username
+                    username:foundUser.username,
+                    desc:foundUser.description
                 }
                 resolve(returnOBJ);
             }
@@ -21,4 +22,15 @@ const findUser=async(parsedUsername)=>{
     })
 }
 
+const findUserPic=async(user)=>{
+    return new Promise(async(resolve,reject)=>{
+        await UserPic.findOne({username:user},(error,foundUser)=>{
+            if(error) reject(error);
+            if(foundUser) resolve(foundUser.img);
+            resolve(null);
+        })
+    })
+}
+
 exports.findUser = findUser;
+exports.findUserPic = findUserPic;

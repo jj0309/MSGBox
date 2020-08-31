@@ -7,8 +7,16 @@ router.post('/',authLib.authenticateToken,async(req,res)=>{
     if(!username)
         res.redirect('/login');
     const newDesc = req.body.newDescription;
-    if(req.files)
-        await userPannelOpsLib.updateImage(username,req.files.profilePic);
+    const fileData = req.files;
+    if(fileData){
+        //TODO: save the file into /server/dao/profileImages
+        const filePath = '/profileImages/'+username+'.jpg';
+        await userPannelOpsLib.updateImage(username,filePath);
+        fileData.profilePic.mv('./server/dao/profileImages/'+username+'.jpg',(error)=>{
+            if(error) console.log(error);
+        })
+    }
+
     if(newDesc)
         await userPannelOpsLib.updateDESC(username,newDesc);
     res.redirect('/myaccount');

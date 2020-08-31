@@ -16,14 +16,20 @@
             <hr/>
             <div class='row'>
                 <div class="col-sm-9">
-                    <h1 class='text-danger Username'><%= renderOBJ.foundUser.username %></h1>
-                    <p class="HalfWidth mx-auto Description"><%= renderOBJ.foundUser.username %> is a mysterious one and has not added a description to his profile yet.</p>
+                    <h1 class='text-danger Username'><%= renderOBJ.user.username %></h1>
+                    <p class="HalfWidth mx-auto Description">
+                        <% if(renderOBJ.user.desc){%>
+                            <%= renderOBJ.user.desc %>
+                        <%}else{%>
+                            <%= renderOBJ.user.username %> is a mysterious one and has not added a description to his profile yet.
+                        <%}%>
+                    </p>
                 </div>
                 <div class="row col-sm-3">
                     <img src="/public/search/images/profile.jpg" class="ProfilePic col-sm-12 img-fluid rounded mx-auto" alt="Responsive profile image">
                 </div>
             </div>
-            <a href=<%= '/request/'+renderOBJ.foundUser.username %>><button class='btn btn-success btn-md'>Send conversation request</button></a>
+            <a href=<%= '/request/'+renderOBJ.user.username %>><button class='btn btn-success btn-md'>Send conversation request</button></a>
             <hr/>
             <div class="row">
                 <div class="col-sm-12 text-warning text-center">

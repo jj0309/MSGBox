@@ -1,0 +1,1 @@
+user profile images are saved here and served upon request.

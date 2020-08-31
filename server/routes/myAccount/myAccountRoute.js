@@ -1,9 +1,12 @@
 const router = require('express').Router();
 const authLib = require('../../DAO/utils/AuthToken/Token');
+const searchUtilLib = require('../../DAO/utils/searchUtils/searchUtils');
 
-router.get('/',authLib.authenticateToken,(req,res)=>{
+router.get('/',authLib.authenticateToken,async(req,res)=>{
     renderOBJ = {};
-    renderOBJ.user = authLib.isLogged(req.user);
+    const user = authLib.isLogged(req.user);
+    renderOBJ.user = await searchUtilLib.findUser(user.username);
+    renderOBJ.user.profilePic = await searchUtilLib.findUserPic(user.username);
     res.render('../public/myAccount/myAccount.ejs',renderOBJ);
 })
 
