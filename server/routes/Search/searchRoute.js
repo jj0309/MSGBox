@@ -7,6 +7,7 @@ router.get('/:username',authLib.authenticateToken,async(req,res)=>{
     renderOBJ.user = authLib.isLogged(req.user);
     const parsedUsername = req.params.username;
     renderOBJ.user = await searchUtilsLib.findUser(parsedUsername);
+    renderOBJ.user.profilePic = await searchUtilsLib.findUserPic(parsedUsername);
     res.render('../public/search/search.ejs',renderOBJ);
 })
 
